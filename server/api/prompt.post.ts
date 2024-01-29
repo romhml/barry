@@ -36,7 +36,6 @@ As a music assistant, my role is to provide detailed musical guidance by organiz
 Remember to always close tags and never include tags other than <b-lyrics>, <b-progression>, and <b-notes>. If lyrics cannot be provided, ignore them.
 `,
       },
-      { role: 'system', content: 'Note that the users plays the piano' },
       { role: 'user', content: body.prompt },
     ],
     model: 'gpt-3.5-turbo',
