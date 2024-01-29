@@ -4,6 +4,7 @@
   "packageManager": "bun@1.0.21",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "format": "prettier --write .",
