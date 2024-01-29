@@ -4,6 +4,15 @@ import Progression from '~/components/ce/Progression.ce.vue'
 import Lyrics from '~/components/ce/Lyrics.ce.vue'
 import Notes from '~/components/ce/Notes.ce.vue'
 
+useServerSeoMeta({})
+
+useServerSeoMeta({
+  title: 'Barry - Your Music Learning Assistant',
+  description:
+    'Barry helps you learn music with personalized guidance and information.',
+  keywords:
+    'music, learn music, music theory, sheet music, chords, music assistant',
+})
 const BProgression = defineCustomElement(Progression)
 const BLyrics = defineCustomElement(Lyrics)
 const BNotes = defineCustomElement(Notes)
