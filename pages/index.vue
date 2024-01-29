@@ -47,8 +47,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="mx-auto flex h-screen w-full max-w-screen-md flex-col pb-4">
-    <div class="flex w-full flex-1 flex-col-reverse overflow-y-scroll py-4">
+  <div
+    class="mx-auto flex h-screen w-full max-w-screen-md flex-col flex-wrap pb-4"
+  >
+    <div
+      class="flex w-full flex-1 flex-col-reverse overflow-x-clip overflow-y-scroll text-wrap py-4"
+    >
       <TransitionGroup name="list">
         <ChatMessage
           v-for="message in messages"

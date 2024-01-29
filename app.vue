@@ -2,13 +2,16 @@
 import { defineCustomElement } from 'vue'
 import Progression from '~/components/ce/Progression.ce.vue'
 import Lyrics from '~/components/ce/Lyrics.ce.vue'
+import Notes from '~/components/ce/Notes.ce.vue'
 
 const BProgression = defineCustomElement(Progression)
 const BLyrics = defineCustomElement(Lyrics)
+const BNotes = defineCustomElement(Notes)
 
 function register() {
   customElements.define('b-progression', BProgression)
   customElements.define('b-lyrics', BLyrics)
+  customElements.define('b-notes', BNotes)
 }
 
 onMounted(() => {
