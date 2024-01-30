@@ -2,10 +2,6 @@
 
 An experimental music teacher based on GPT-4. Right now, more into daydreams than serious teacher mode.
 
-<p align="center">
-  <img align="center" width="200" src="./screenshot.png">
-</p>
-
 ## Getting started
 
 Make sure to install the dependencies:
