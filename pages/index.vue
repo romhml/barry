@@ -4,7 +4,7 @@ import { ArrowRightIcon, ArrowPathIcon } from '@heroicons/vue/20/solid'
 const loading = ref(false)
 const form = ref()
 const formData = ref({ prompt: '' })
-
+const chatBottom = ref()
 const messages = ref()
 
 async function onSubmit() {
@@ -38,6 +38,8 @@ async function onSubmit() {
 
   // Temporarily store messages to localStorage for easy testing / debugging
   localStorage.setItem('chat', JSON.stringify(messages.value))
+
+  chatBottom.value.scrollIntoView({ behavior: 'smooth' })
 }
 
 onMounted(() => {
@@ -49,15 +51,19 @@ onMounted(() => {
 <template>
   <div class="mx-auto flex h-screen w-full flex-col flex-wrap pb-4">
     <div
-      class="flex w-full flex-1 flex-col-reverse overflow-x-clip overflow-y-scroll text-wrap py-4"
+      class="flex w-full flex-1 flex-col-reverse justify-start overflow-x-clip overflow-y-scroll text-wrap py-4"
     >
+      <span
+        ref="chatBottom"
+        class="hidden"
+      />
       <TransitionGroup name="list">
         <ChatMessage
           v-for="message in messages"
           :key="message.id"
           :content="message.content"
           :role="message.role"
-          class="m-auto w-full max-w-screen-md"
+          class="mx-auto w-full max-w-screen-md"
         />
       </TransitionGroup>
     </div>

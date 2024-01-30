@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Chord from '@tonaljs/chord'
-import type { Chord as ChordT } from '@tonaljs/chord'
 
 const props = defineProps({
   data: { type: String, required: true },
@@ -14,14 +13,16 @@ function parseProgression(prog: string) {
   return bars.reduce((acc, bar) => {
     const chords = bar.split(/\s+/).filter((chord) => chord.trim() !== '')
 
-    const chordObjects = chords.map((chord) => {
-      const trimmed = chord.trim()
-      return Chord.get(trimmed)
-    })
+    const chordsInBar = chords.map((value) => {
+      const trimmed = value.trim()
+      const chord = Chord.get(trimmed)
 
-    acc.push(chordObjects)
+      return chord.empty ? trimmed : chord.symbol
+    })
+    acc.push(chordsInBar)
+
     return acc
-  }, [] as ChordT[][])
+  }, [] as string[][])
 }
 
 const progression = computed(() => parseProgression(props.data))
@@ -45,15 +46,15 @@ onMounted(() => {
         class="flex space-x-2 border-r-2 border-black"
       >
         <p
-          v-for="(chord, chordIndex) in bar"
-          :key="`bar${barIndex}-chord${chordIndex}`"
+          v-for="chord in bar"
+          :key="`bar${barIndex}-chord${chord}`"
           class="text-wrap p-2 font-jazz"
           :class="{
             'text-4xl': bar.length < 3,
             'text-2xl': bar.length >= 3,
           }"
         >
-          {{ chord.symbol }}
+          {{ chord }}
         </p>
       </div>
     </div>

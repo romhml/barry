@@ -30,7 +30,7 @@ const augmentedResponse = computed(() => {
       </svg>
       <UserIcon
         v-else
-        class="text-gray-300"
+        class="text-gray-400"
       />
     </div>
     <div class="w-full">

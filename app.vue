@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { defineCustomElement } from 'vue'
 import Progression from '~/components/ce/Progression.ce.vue'
-import Lyrics from '~/components/ce/Lyrics.ce.vue'
-import Notes from '~/components/ce/Notes.ce.vue'
+import Partition from '~/components/ce/Partition.ce.vue'
 
 useServerSeoMeta({})
 
@@ -13,14 +12,13 @@ useServerSeoMeta({
   keywords:
     'music, learn music, music theory, sheet music, chords, music assistant',
 })
+
 const BProgression = defineCustomElement(Progression)
-const BLyrics = defineCustomElement(Lyrics)
-const BNotes = defineCustomElement(Notes)
+const BPartition = defineCustomElement(Partition)
 
 function register() {
   customElements.define('b-progression', BProgression)
-  customElements.define('b-lyrics', BLyrics)
-  customElements.define('b-notes', BNotes)
+  customElements.define('b-partition', BPartition)
 }
 
 onMounted(() => {
