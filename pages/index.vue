@@ -47,9 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="mx-auto flex h-screen w-full max-w-screen-md flex-col flex-wrap pb-4"
-  >
+  <div class="mx-auto flex h-screen w-full flex-col flex-wrap pb-4">
     <div
       class="flex w-full flex-1 flex-col-reverse overflow-x-clip overflow-y-scroll text-wrap py-4"
     >
@@ -59,14 +57,14 @@ onMounted(() => {
           :key="message.id"
           :content="message.content"
           :role="message.role"
-          class="w-full"
+          class="m-auto w-full max-w-screen-md"
         />
       </TransitionGroup>
     </div>
 
     <form
       ref="form"
-      class="relative w-full"
+      class="relative mx-auto w-full max-w-screen-md"
       hx-sse-post="/"
       hx-trigger="submit, keyup[keyCode==13 && !shiftKey && !ctrlKey && !altKey]"
       hx-sse-events="message, chunk, end"
@@ -80,7 +78,7 @@ onMounted(() => {
         name="prompt"
         class="w-full resize-none rounded-xl border border-gray-200 px-4 py-3.5 pr-12 shadow-lg outline-none focus:shadow-xl"
         rows="5"
-        placeholder="Ask me anything!"
+        placeholder="Ask me anything about music!"
         required
         @keydown.enter.exact="$event.preventDefault()"
       ></textarea>

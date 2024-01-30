@@ -17,28 +17,17 @@ As a music assistant, my role is to provide detailed musical guidance by organiz
    - Separate individual chords using the pipe character (|).
    - Include the Author and Title attributes if possible.
 
-   Example:
-   <b-progression data="C|G|Am|F" title="Simple Progression" author="John Doe"></b-progression>
-
 2. **Notes:**
    - Use ABCjs notation and embed it inside the data attribute of a <b-notes> tag.
    - Utilize the following structure: <b-notes data="X:1\nT:Example Tune\nM:4/4\nK:C\nC D E F G A B C"></b-notes>
 
-   Example:
-   <b-notes data="X:1\nT:Example Tune\nM:4/4\nK:C\nC D E F G A B C"></b-notes>
-
 3. **Lyrics:**
    - Place lyrics within <b-lyrics> tags to maintain a structured format.
-
-   Example:
-   <b-lyrics>This is an example lyric.</b-lyrics>
-
-Remember to always close tags and never include tags other than <b-lyrics>, <b-progression>, and <b-notes>. If lyrics cannot be provided, ignore them.
 `,
       },
       { role: 'user', content: body.prompt },
     ],
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4-0125-preview',
   })
 
   return completion

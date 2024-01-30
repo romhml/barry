@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserIcon, MusicalNoteIcon } from '@heroicons/vue/20/solid'
+import { UserIcon } from '@heroicons/vue/20/solid'
 import { marked } from 'marked'
 const props = defineProps({
   content: { type: String, required: true },
